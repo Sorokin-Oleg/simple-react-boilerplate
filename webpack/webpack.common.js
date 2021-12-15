@@ -1,6 +1,7 @@
 const PATHS = require('./paths');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   externals: {
@@ -43,17 +44,36 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
-          "style-loader",
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: { sourceMap: true, url: false }
+            options: { 
+              sourceMap: true,
+              modules: {
+                localIdentName: "[local]__[hash:base64:5]",
+              }
+            }
           },
+          "sass-loader",
           {
             loader: "postcss-loader",
             options: {
               sourceMap: true,
-              config: { path: "./postcss.config.js" }
+              postcssOptions: {
+                plugins: [
+                  require("autoprefixer"),
+                  require("cssnano")({
+                    preset: [
+                      "default",
+                      {
+                        discardComments: {
+                          removeAll: true,
+                        },
+                      },
+                    ],
+                  }),
+                ]
+              }
             }
           },
         ]
@@ -62,9 +82,10 @@ module.exports = {
   },
   resolve: {
     mainFields: ["main", "module"],
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".css"]
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".css", ".scss"]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css"
     }),

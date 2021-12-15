@@ -33,9 +33,22 @@
     "react-hooks"
   ],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error",
+      {
+        "endOfLine":"auto"
+      }
+    ],
     "quotes": ["error", "double"],
-    "indent": ["warn", 2],
+    "indent": ["warn", 2, { 
+      "SwitchCase": 1, 
+      "ignoredNodes": ["ConditionalExpression"]
+      }
+    ],
+    "class-methods-use-this": "off",
+    "no-plusplus": "off",
+    "no-underscore-dangle": "off",
+    "comma-dangle": "off",
+    "arrow-parens": "off",
     "object-curly-newline": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off"
