@@ -1,3 +1,5 @@
 common
 webpack
 node_modules
+source/assets
+source/public

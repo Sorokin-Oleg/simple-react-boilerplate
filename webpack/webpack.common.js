@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.(ts|tsx)$/,
-        loader: "awesome-typescript-loader",
+        loader: "ts-loader",
         exclude: "/node_modules/"
       },
       {
@@ -54,13 +54,19 @@ module.exports = {
               }
             }
           },
-          "sass-loader",
+          { 
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          },
           {
             loader: "postcss-loader",
             options: {
               sourceMap: true,
               postcssOptions: {
                 plugins: [
+                  require("postcss-preset-env"),
                   require("autoprefixer"),
                   require("cssnano")({
                     preset: [
