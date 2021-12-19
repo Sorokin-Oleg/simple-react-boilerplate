@@ -85,7 +85,7 @@ This simple template contains all the necessary settings to start a React projec
 ### Linters
 
 - [`eslint`](https://github.com/eslint/eslint) - Enforce styleguide across application;
-- [`prettier`](https://github.com/prettier/prettier) - Dependency for `prettier-webpack-plugin` plugin;
+- [`prettier`](https://github.com/prettier/prettier) - Prettier is an opinionated code formatter;
 - [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) - Implement prettier rules;
 - [`eslint-config-airbnb-base`](https://github.com/airbnb/javascript) - This package provides Airbnb's base JS .eslintrc (without React plugins) as an extensible shared config;
 - [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import) - This plugin intends to support linting of ES2015+ (ES6+) import/export syntax, and prevent issues with misspelling of file paths and import names;
