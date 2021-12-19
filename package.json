@@ -22,7 +22,7 @@
     "build": "webpack --config ./webpack/webpack.prod.js",
     "prettify": "prettier --write source/**/*.{js,jsx,ts,tsx,html,css,scss}",
     "lint": "eslint source/**/*.{js,ts,jsx,tsx} --quiet --fix",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged --verbose"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,scss,html}": [
